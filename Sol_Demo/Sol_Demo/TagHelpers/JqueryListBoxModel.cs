@@ -12,5 +12,7 @@ namespace Sol_Demo.TagHelpers
         public int OnSelectedIndex { get; set; }
 
         public String OnGetItemButtonId { get; set; }
+
+        public String DisplayItemId { get; set; }
     }
 }

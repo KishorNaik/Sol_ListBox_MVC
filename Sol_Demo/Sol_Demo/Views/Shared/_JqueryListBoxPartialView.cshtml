@@ -8,7 +8,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div id="divListBox" data-itemsource="@Model.ItemSource" data-onselectedindex="@Model.OnSelectedIndex" data-buttonid="@Model.OnGetItemButtonId">
+            <div id="divListBox" 
+                 data-itemsource="@Model.ItemSource" 
+                 data-onselectedindex="@Model.OnSelectedIndex" 
+                 data-buttonid="@Model.OnGetItemButtonId"
+                 data-displayitemid="@Model.DisplayItemId"
+                 >
 
             </div>
             <input id="hidItemSelectedPosition" type="hidden" name="hidItemSelectedPosition" />

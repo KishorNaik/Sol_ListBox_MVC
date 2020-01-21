@@ -22,9 +22,14 @@
 <form id="frmMain">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-
-                <jQuery-Listbox item-source="Model" on-selected-index="2" on-getitem-button-id="btnSelected"></jQuery-Listbox>
+            <div class="col-6">
+                <jQuery-Listbox item-source="Model" 
+                                on-selected-index="2" 
+                                on-getitem-button-id="btnSelected" 
+                                displayitem-id="h2DisplayItem"></jQuery-Listbox>
+            </div>
+            <div class="col-6">
+                <h2 id="h2DisplayItem"></h2>
             </div>
         </div>
         <div class="row">

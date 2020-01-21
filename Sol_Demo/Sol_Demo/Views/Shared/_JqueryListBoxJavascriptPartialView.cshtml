@@ -10,6 +10,10 @@
     console.log(buttonId);
     $("#"+buttonId).attr("disabled", true);
 
+    // get Display Item Id
+    var displayItemId = $("#divListBox").data("displayitemid");
+    console.log(displayItemId);
+
     // Get Item Source
     var item = $("#divListBox").data("itemsource");
     console.log(item);
@@ -26,11 +30,17 @@
         var args = event.args;
 
         if (args) {
-            var index = args.index
+            var index = args.index;
             //console.log(index);
+
+            var item = args.item;
+            console.log(item);
 
             // enable button
             $("#" + buttonId).attr("disabled", false);
+
+            // display Item on Select
+            $("#" + displayItemId).html(item.value);
 
             //Store Selected Index
             $("#hidItemSelectedPosition").val(index);

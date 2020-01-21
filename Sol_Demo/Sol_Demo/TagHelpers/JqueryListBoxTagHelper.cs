@@ -19,7 +19,8 @@ namespace Sol_Demo.TagHelpers
         private const string ItemSourceAttributeName = "item-source";
         private const string OnSelectedPositionAttributeName = "on-selected-index";
         private const string ButtonIdAttributeName = "on-getitem-button-id";
-       
+        private const string DisplayItemIdAttributeName = "displayitem-id";
+
 
         public JqueryListBoxTagHelper(IHtmlHelper htmlHelper)
         {
@@ -36,6 +37,8 @@ namespace Sol_Demo.TagHelpers
         [HtmlAttributeName(ButtonIdAttributeName)]
         public String OnGetItemButtonId { get; set; }
 
+        [HtmlAttributeName(DisplayItemIdAttributeName)]
+        public String DisplayItemId { get; set; }
 
         [HtmlAttributeNotBound]
         [ViewContext]
@@ -50,8 +53,9 @@ namespace Sol_Demo.TagHelpers
             {
                 ItemSource = JsonConvert.SerializeObject(ItemSource),
                 OnSelectedIndex = OnSelectedIndex,
-                OnGetItemButtonId=OnGetItemButtonId
-               
+                OnGetItemButtonId=OnGetItemButtonId,
+                DisplayItemId=DisplayItemId
+                
             };
 
             var content = await htmlHelper?.PartialAsync("~/Views/Shared/_JqueryListBoxPartialView.cshtml", jqueryListBoxModel);
