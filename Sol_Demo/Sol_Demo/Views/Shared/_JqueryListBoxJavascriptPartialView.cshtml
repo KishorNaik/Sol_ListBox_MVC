@@ -1,0 +1,43 @@
+﻿<script src="~/lib/jquery-listbox/js/jqxcore.js"></script>
+<script src="~/lib/jquery-listbox/js/jqxbuttons.js"></script>
+<script src="~/lib/jquery-listbox/js/jqxscrollbar.js"></script>
+<script src="~/lib/jquery-listbox/js/jqxlistbox.js"></script>
+
+<script type="text/javascript">
+
+    // get Button Id
+    var buttonId = $("#divListBox").data("buttonid");
+    console.log(buttonId);
+    $("#"+buttonId).attr("disabled", true);
+
+    // Get Item Source
+    var item = $("#divListBox").data("itemsource");
+    console.log(item);
+
+    ////// Get Selected Index Position
+    var selectedListBoxIndex = Number($("#divListBox").data("onselectedindex"));
+    console.log(selectedListBoxIndex);
+
+
+    ////// Bind List Box
+    $("#divListBox").jqxListBox({ selectedIndex: selectedListBoxIndex, source: item, width: 250, height: 150 });
+
+    $('#divListBox').on('select', function (event) {
+        var args = event.args;
+
+        if (args) {
+            var index = args.index
+            //console.log(index);
+
+            // enable button
+            $("#" + buttonId).attr("disabled", false);
+
+            //Store Selected Index
+            $("#hidItemSelectedPosition").val(index);
+        }
+    });
+
+
+  
+
+</script>

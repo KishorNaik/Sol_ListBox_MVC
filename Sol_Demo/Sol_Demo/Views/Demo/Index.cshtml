@@ -1,0 +1,56 @@
+﻿@model List<String>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@*@{ 
+
+    var listData = new List<String>();
+    listData.Add("C++");
+    listData.Add("Csharp");
+    listData.Add("Java");
+    listData.Add("Javascript");
+    listData.Add("Typescript");
+    listData.Add("Python");
+    listData.Add("Objective-C");
+    listData.Add("Swift");
+
+}*@
+
+<form id="frmMain">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <jQuery-Listbox item-source="Model" on-selected-index="2" on-getitem-button-id="btnSelected"></jQuery-Listbox>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <hr />
+                <button id="btnSelected" class="btn btn-danger" onclick="onSelectedItem(); return false;">Get Selected Value</button>
+                
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("~/Views/Shared/_JqueryListBoxJavascriptPartialView.cshtml");}
+
+    <script type="text/javascript">
+
+     
+        function onSelectedItem() {
+            $("#frmMain").attr("method", "post");
+            $("#frmMain").attr("action", '@Url.Action("OnItemSelected","Demo")');
+            $("#frmMain").submit();
+          
+        }
+        
+    </script>
+
+}
