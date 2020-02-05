@@ -8,7 +8,7 @@
     // get Button Id
     var buttonId = $("#divListBox").data("buttonid");
     console.log(buttonId);
-    $("#"+buttonId).attr("disabled", true);
+    $("#" + buttonId).attr("disabled", true);
 
     // get Display Item Id
     var displayItemId = $("#divListBox").data("displayitemid");
@@ -21,7 +21,6 @@
     ////// Get Selected Index Position
     var selectedListBoxIndex = Number($("#divListBox").data("onselectedindex"));
     console.log(selectedListBoxIndex);
-
 
     ////// Bind List Box
     $("#divListBox").jqxListBox({ selectedIndex: selectedListBoxIndex, source: item, width: 250, height: 150 });
@@ -46,8 +45,4 @@
             $("#hidItemSelectedPosition").val(index);
         }
     });
-
-
-  
-
 </script>
